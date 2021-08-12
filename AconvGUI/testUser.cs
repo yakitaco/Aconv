@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -9,24 +6,30 @@ namespace AconvGUI {
     class testUser {
 
         int id;
+
+        public testUser() {
+            Task.Run(() => {
+                this.main();
+            });
+        }
+
         public void main() {
             chatCtl c = chatCtl.connect(out id, 0);
-            Console.WriteLine("[DEBUG]connect[" + id + "]");
 
             c.recvMsg(recv, id);
 
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 3; i++) {
                 Thread.Sleep(5000);
-                c.sendMsg(id, 0, "[SEND]" + i);
-                Console.WriteLine("[SEND]" + i);
+                string msg = "Send Message :" + i;
+                c.sendMsg(id, 0, 0, msg);
+                Console.WriteLine("[SEND][" + id + "]" + msg);
             }
-
             c.disconnect(id);
 
         }
 
         public void recv(int rid, int msgType, string str) {
-            Console.WriteLine("[DEBUG][" + id + "]" + str +"("+ rid +")");
+            Console.WriteLine("[RECV][" + id + "]" + str + "(rid=" + rid + ")");
         }
     }
 }

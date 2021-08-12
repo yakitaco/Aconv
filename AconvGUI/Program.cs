@@ -13,16 +13,9 @@ namespace AconvGUI {
         [STAThread]
         static void Main() {
 
-            
-            c = new chatCtl();
             testUser test1 = new testUser();
-            Task.Run(() => {
-                test1.main();
-            });
             testUser test2 = new testUser();
-            Task.Run(() => {
-                test1.main();
-            });
+            testUser test3 = new testUser();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
