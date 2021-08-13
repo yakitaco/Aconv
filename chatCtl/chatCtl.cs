@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace AconvGUI {
-    class chatCtl {
+namespace ChatCtl
+{
+    public class chatCtl
+    {
         public delegate void TimeEventHandler(object sender, string e);
 
         static List<Action<int, int, string>> cbList = new List<Action<int, int, string>>();
@@ -22,7 +27,7 @@ namespace AconvGUI {
 
         public void sendMsg(int _tid, int _mtype, int _mid, string msg) {
             for (int i = 0; i < cbList.Count; i++) {
-                if ((i != _tid)&&(cbList[i] != null)) {
+                if ((i != _tid) && (cbList[i] != null)) {
                     cbList[i](_tid, _mtype, msg);
                 }
             }
@@ -31,6 +36,5 @@ namespace AconvGUI {
         public void recvMsg(Action<int, int, string> callback, int _tid) {
             cbList[_tid] = callback;
         }
-
     }
 }
