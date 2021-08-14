@@ -12,8 +12,7 @@ namespace AconvAI
     public class User
     {
 
-
-        int id;
+        public int id;
 
         public User() {
             Task.Run(() => {
@@ -30,11 +29,12 @@ namespace AconvAI
 
             c.recvMsg(recv, id);
 
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 999; i++) {
                 Thread.Sleep(5000);
                 string msg = "ABABAB Send Message :" + i;
                 c.sendMsg(id, 0, 0, msg);
                 Console.WriteLine("[SEND][" + id + "]" + msg);
+                Thread.Sleep(5000);
             }
             c.disconnect(id);
 

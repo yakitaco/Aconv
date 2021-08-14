@@ -24,9 +24,9 @@ namespace AconvGUI {
                 }
 
 
-            testUser test1 = new testUser();
-            testUser test2 = new testUser();
-            testUser test3 = new testUser();
+            //testUser test1 = new testUser();
+            //testUser test2 = new testUser();
+            //testUser test3 = new testUser();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
