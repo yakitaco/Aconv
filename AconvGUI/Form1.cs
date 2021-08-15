@@ -1,7 +1,6 @@
 ﻿using ChatCtl;
 using System;
 using System.Reflection;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace AconvGUI {
@@ -49,7 +48,8 @@ namespace AconvGUI {
         }
 
         private void button3_Click(object sender, EventArgs e) {
-            if ((listBox1.SelectedIndex > -1) && (listBox1.SelectedIndex < listBox1.Items.Count)) {
+            // 自分自身は削除できない
+            if ((listBox1.SelectedIndex > 0) && (listBox1.SelectedIndex < listBox1.Items.Count)) {
                 //c.indiDisconnect();
                 string[] arrs = listBox1.SelectedItem.ToString().Substring(1).Split(']');
                 MessageBox.Show( "Id " + arrs[0] +  " delete.");
