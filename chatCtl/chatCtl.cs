@@ -8,6 +8,8 @@ namespace ChatCtl
         public delegate void TimeEventHandler(object sender, string e);
 
         static List<Action<int, int, string>> cbList = new List<Action<int, int, string>>();
+        static List<Action<int, int, string>> dlList = new List<Action<int, int, string>>();
+
         static chatCtl instance = new chatCtl();
 
         static int id = 0;
@@ -33,5 +35,10 @@ namespace ChatCtl
         public void recvMsg(Action<int, int, string> callback, int _tid) {
             cbList[_tid] = callback;
         }
+
+        public void delete(int _tid) {
+
+        }
+
     }
 }

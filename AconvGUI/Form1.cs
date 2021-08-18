@@ -54,6 +54,8 @@ namespace AconvGUI {
                 string[] arrs = listBox1.SelectedItem.ToString().Substring(1).Split(']');
                 MessageBox.Show( "Id " + arrs[0] +  " delete.");
                 listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+                int numVal = Int32.Parse(arrs[0]);
+                c.delete(numVal);
             }
         }
 
